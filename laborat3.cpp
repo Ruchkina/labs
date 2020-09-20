@@ -1,31 +1,44 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30413.136
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "laborat3", "laborat3\laborat3.vcxproj", "{84DDA1EC-0317-4B13-843A-8C6BFBD95570}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{84DDA1EC-0317-4B13-843A-8C6BFBD95570}.Debug|x64.ActiveCfg = Debug|x64
-		{84DDA1EC-0317-4B13-843A-8C6BFBD95570}.Debug|x64.Build.0 = Debug|x64
-		{84DDA1EC-0317-4B13-843A-8C6BFBD95570}.Debug|x86.ActiveCfg = Debug|Win32
-		{84DDA1EC-0317-4B13-843A-8C6BFBD95570}.Debug|x86.Build.0 = Debug|Win32
-		{84DDA1EC-0317-4B13-843A-8C6BFBD95570}.Release|x64.ActiveCfg = Release|x64
-		{84DDA1EC-0317-4B13-843A-8C6BFBD95570}.Release|x64.Build.0 = Release|x64
-		{84DDA1EC-0317-4B13-843A-8C6BFBD95570}.Release|x86.ActiveCfg = Release|Win32
-		{84DDA1EC-0317-4B13-843A-8C6BFBD95570}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3C3D5AA5-95A3-4CEB-AB58-689B47061DD9}
-	EndGlobalSection
-EndGlobal
+﻿#include <iostream>
+#include <math.h>
+
+float leftQuadrangleMethod(float, float, int);
+
+int main()
+{
+	float lastSquare;
+	float presentSquare;
+	float accuracy;
+	float a;
+	float b;
+	int n;
+	n = 1;
+	printf("Enter accuracy: ");
+	scanf_s("%f", &accuracy);
+	printf("Enter the left number: ");
+	scanf_s("%f", &a);
+	printf("Enter the right number: ");
+	scanf_s("%f", &b);
+	presentSquare = leftQuadrangleMethod(a, b, n);
+	n++;
+	do
+	{
+		lastSquare = presentSquare;
+		presentSquare = leftQuadrangleMethod(a, b, n);
+		n++;
+	} while (abs(lastSquare - presentSquare) > accuracy);
+	printf("Answer: %f", presentSquare);
+}
+
+float leftQuadrangleMethod(float a, float b, int n)
+{
+	float summa = 0;
+	float h = (b - a) / n;
+	int i;
+	for (i = 0; i < n; i++)
+	{
+		float square = h * log(a + h * i);
+		//printf("log: %f\n", log(a + h * i))
+		summa = summa + square;
+	}
+	return summa;
+}
