@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <math.h> 
+
 float calculatingValue(float);
 void printMainTable(float);
 void printTitleTable();
@@ -12,10 +13,10 @@ void solutionWhileDo(float, float, float);
 
 int main()
 {
-	float leftNumber, rightNumber, sizeStep;
+	float leftNumber, rightNumber;
 	int quantitySteps;
 	scanf_s("%f%f%d", &leftNumber, &rightNumber, &quantitySteps);
-	sizeStep = (rightNumber - leftNumber) / (quantitySteps - 1);
+	float sizeStep = (rightNumber - leftNumber) / (quantitySteps - 1);
 	if (leftNumber >= 0 && rightNumber >= 0 && quantitySteps > 0)
 	{
 		solutionFor(quantitySteps, leftNumber, sizeStep);
