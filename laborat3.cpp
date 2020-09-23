@@ -6,7 +6,6 @@ float leftQuadrangleMethod(float, float, int);
 int main()
 {
 	float lastSquare;
-	float presentSquare;
 	float accuracy;
 	float a;
 	float b;
@@ -18,7 +17,7 @@ int main()
 	scanf_s("%f", &a);
 	printf("Enter the right number: ");
 	scanf_s("%f", &b);
-	presentSquare = leftQuadrangleMethod(a, b, n);
+	float presentSquare = leftQuadrangleMethod(a, b, n);
 	n++;
 	do
 	{
