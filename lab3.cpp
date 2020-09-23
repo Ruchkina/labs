@@ -8,15 +8,12 @@ float f(float, float);
 int main()
 {
 	float accuracy;
-	float n;
-	float summa;
 	float lastNumber;
-	float currentNumber;
 	printf("Enter accuracy: ");
 	scanf_s("%f", &accuracy);
-	n = 1;
-	currentNumber = f(n, 1);
-	summa = currentNumber;
+	float n = 1;
+	float currentNumber = f(n, 1);
+	float summa = currentNumber;
 	n = 2;
 	do
 	{
