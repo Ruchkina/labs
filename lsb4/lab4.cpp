@@ -1,17 +1,20 @@
 ﻿#include <iostream>
+//#define quantity2 = 6
+int foundSumm(float[6], float, float, float, int, float);
 
-int main()
+void main()
 {
-	const int quantity = 6;
-	float line[quantity];
+	int quantity2 = 6;
+	float line[6];
+	printf("Enter elements");
 	scanf_s("%f", &line[0]);
 	float maximElement = line[0];
 	float minimElement = line[0];
 	int indexMaximElement = -1;
 	float summa = 0;
 
-	printf("Enter elements");
-	for (int i = 1; i < quantity; i++)
+
+	for (int i = 1; i < quantity2; i++)
 	{
 		scanf_s("%f", &line[i]);
 		if (line[i] > maximElement)
@@ -19,15 +22,18 @@ int main()
 			indexMaximElement = i;
 			maximElement = line[i];
 		}
-		if (line[i] < minimElement)
+		if (line[i] <= minimElement)
 		{
-			maximElement = line[i];
+			minimElement = line[i];
 		}
 	}
-	for (int i = indexMaximElement + 1; i < quantity; i++)
-	{
-		if (line[i] > (maximElement + minimElement) / 2)
-			summa = summa + line[i];
-	}
+	summa = foundSumm(line, maximElement, minimElement, summa, indexMaximElement, quantity2);
 	printf("Summa = %f", summa);
+}
+int  foundSumm(float line[6], float maxim, float minim, float sum, int index, float quantity2)
+{
+	for (int i = index + 1; i < quantity2; i++)
+		if (line[i] > (maxim + minim) / 2)
+			sum = sum + line[i];
+	return sum;
 }
