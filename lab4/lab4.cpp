@@ -2,8 +2,6 @@
 
 void inputArray(float*, int);
 int findSumm(float*, int, int, int);
-int findMinimIndex(float*, float, int);
-int findMaximIndex(float*, float, int);
 int findIndex(float*, int, int);
 
 int main() {
