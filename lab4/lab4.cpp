@@ -14,25 +14,43 @@ int main() {
 	printf("Summa = %f\n", summa);
 }
 
-int  findSumm(float* line, int maximIn, int minimIn, int n) {
+// Поиск суммы
+// Функция приниммает:
+// - указательна массив
+// - значение ммаксимального элемента
+// - значение минимального элемента
+// - кол-во элементов массива
+int findSumm(float* line, int maximIn, int minimIn, int quantity) {
 	float sum = 0;
-	for (int i = maximIn + 1; i < n; i++)
+	for (int i = maximIn + 1; i < quantity; i++)
 		if (line[i] > (line[maximIn] + line[minimIn]) / 2)
 			sum = sum + line[i];
 	return sum;
 }
 
+// Ввод массива
 void inputArray(float* array, int quantity) {
 	printf("Enter elements:\n");
 	for (int i = 0; i < quantity; i++) {
+// Вывод номера элемента    
     printf("%d: ", i + 1);
+// Ввод значения элемента
 		scanf("%f", &array[i]);
   }  
 }
 
+// Функция поиска индекса.
+// Принимает:
+// - указательна массива
+// - кол-во элементов массива
+// - min_max - переключатель "что ищем"
+//   "1"  - ищем максимум
+//   "-1" - ищем минимум
 int findIndex(float* array, int quantity, int min_max) {
+// Для начала искомый элемент равен первому элементу массива
 	int index = 0;
-  float Element = array[0];
+  float Element = array[index];
+
 	for (int i = 1; i < quantity; i++) {
     switch (min_max) {
       case 1:
