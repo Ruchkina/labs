@@ -5,11 +5,11 @@ int findSumm(float*, int, int, int);
 int findIndex(float*, int, int);
 
 int main() {
-	const int n = 6;
+	const int n = 3;
 	float line[n];
 	inputArray(line, n);
-  printf("maxIndex = %d\n", findMaximIndex(line, line[0], n));
-  printf("minIndex = %d\n", findMinimIndex(line, line[0], n));
+  printf("maxIndex = %d\n", findIndex(line, n, 1));
+  printf("minIndex = %d\n", findIndex(line, n, -1));
   float summa = findSumm(line, findIndex(line, n, 1), findIndex(line,n, -1), n);
 	printf("Summa = %f\n", summa);
 }
