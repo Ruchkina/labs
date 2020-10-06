@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAXIM 10
-#define MINIM -10
-
-
 void inputArray(int*, int);
 void printArray(int*, int);
 void inputNewArray(int*, int*, int);
@@ -24,10 +20,6 @@ int main()
 	printf("Array:\n");
 	printArray(inputedArray, sizeArray);
 
-	inputNewArray(inputedArray, sortedArray, sizeArray);
-	printf("Temporary array:\n");
-	printArray(sortedArray, sizeArray);
-
 	orderedSort(sortedArray, sizeArray);
 	printf("Result:\n");
 	printArray(sortedArray, sizeArray);
@@ -36,12 +28,10 @@ int main()
 
 void inputArray(int* array, int size)
 {
-	//printf("Enter elements:\n");
-	srand(time(NULL));
+	printf("Enter elements:\n");
 	for (int i = 0; i < size; i++) {
-		//printf("%d: ", i);
-		//scanf_s("%d", &array[i]);
-		array[i] = (rand() % (MAXIM - MINIM) + 1) - MAXIM;
+		printf("%d: ", i);
+		scanf_s("%d", &array[i]);
 	}
 }
 void printArray(int* array, int size)
@@ -57,16 +47,16 @@ void inputNewArray(int* array, int* newArray, int size)
 	{
 		if (array[i] > 0)
 		{
-			newArray[j++] = array[i];
-			//j++;
+			newArray[j] = array[i];
+			j++;
 		}
 	}
 	for (int i = 0; i < size; i++)
 	{
 		if (array[i] < 0)
 		{
-			newArray[j++] = array[i];
-			//j++;
+			newArray[j] = array[i];
+			j++;
 		}
 	}
 	for (; j < size; j++)
