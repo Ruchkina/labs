@@ -1,6 +1,5 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 void inputArray(int*, int);
 void printArray(int*, int);
