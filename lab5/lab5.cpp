@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 void inputArray(int*, int);
@@ -19,6 +19,7 @@ int main()
 	printf("Array:\n");
 	printArray(inputedArray, sizeArray);
 
+	inputNewArray(inputedArray, sortedArray, sizeArray);
 	orderedSort(sortedArray, sizeArray);
 	printf("Result:\n");
 	printArray(sortedArray, sizeArray);
