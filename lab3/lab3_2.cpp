@@ -7,8 +7,8 @@ int main()
 {
 	float lastSquare;
 	float accuracy;
-	float a;
 	float b;
+	float a;
 	int n;
 	n = 1;
 	printf("Enter accuracy: ");
