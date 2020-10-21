@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <malloc.h>
+
+void inputArray(int**, int, int);
+void printArray(int**, int, int);
+void transponMatrix(int**, int, int);
+
+int main()
+
+{
+    int m, n;
+    printf("Input dimention matrix (row/col):");
+    // m - row
+    // n - column
+    scanf_s("%d/%d", &m, &n);
+
+    int** a = (int**)malloc(m * sizeof(int*));
+
+    for (int c = 0; c < m; c++)
+        a[c] = (int*)malloc(n * sizeof(int));
+    inputArray(a, m, n);
+    printArray(a, m, n);
+    transponMatrix(a, m, n);
+}
+void inputArray(int** array, int row, int column)
+{
+    printf("Enter elements:\n");
+    for (int i = 0; i < row; i++)
+        for (int j = 0; j < column; j++)
+            scanf_s("%d", &array[i][j]);
+
+}
+
+void printArray(int** array, int row, int column)
+{
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < column; j++)
+            printf("%d  ", array[i][j]);
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void transponMatrix(int** array, int sizeY, int sizeX)
+{
+    for (int i = 0; i < sizeX; i++)
+    {
+        for (int j = 0; j < sizeY; j++)
+            printf("%d  ", array[j][i]);
+        printf("\n");
+    }
+}
+
