@@ -4,6 +4,7 @@
 void inputArray(int**, int, int);
 void printArray(int**, int, int);
 void squareTransponMatrix(int**, int, int, int);
+void freeMatrix(int**, int);
 
 int main()
 
@@ -28,6 +29,7 @@ int main()
         squareTransponMatrix(a, m, m - n, 0);
     }
     printArray(a, m, n);
+    freeMatrix(a, m);
 }
 
 void inputArray(int** array, int row, int column)
@@ -61,4 +63,10 @@ void squareTransponMatrix(int** array, int size, int x0, int y0)
             array[size - j - 1][size - i - 1] = tmp;
         }
     }
+}
+void freeMatrix(int** array, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(array[i]);
+    free(array);
 }
