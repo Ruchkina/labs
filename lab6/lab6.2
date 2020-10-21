@@ -12,10 +12,10 @@ void freeMatrix(int**, int);
 int main()
 {
     int n, m;
-    int indexIMax;
-    int indexJMax;
-    int indexIMin;
-    int indexJMin;
+    int indexIMax; //индекс i максимального эл
+    int indexJMax; //индекс j минимального эл
+    int indexIMin; //индекс i максимального эл
+    int indexJMin; //индекс j минимального эл
     printf("Input dimention matrix (row/col): ");
     scanf_s("%d/%d", &m, &n);
     int** a = (int**)malloc(m * sizeof(int*));
