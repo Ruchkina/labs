@@ -1,0 +1,98 @@
+//вариант0
+#include <iostream>
+#include <stdio.h>
+#include <malloc.h>
+
+void inputArray(int**, int, int);
+void printArray(int**, int, int);
+void freeMatrix(int**, int);
+void transponSnake(int**,int**, int, int);
+void sortIncrease(int**, int, int);
+void swap(int*, int*);
+
+int main()
+{
+    int m, n;
+    printf("Input dimention matrix (row/col): ");
+    scanf_s("%d/%d", &m, &n);
+    int** a = (int**)malloc(m * sizeof(int*));
+    for (int c = 0; c < m; c++)
+        a[c] = (int*)malloc(n * sizeof(int));
+    int** sortingArray = (int**)malloc(m * sizeof(int*));
+    for (int c = 0; c < m; c++)
+        sortingArray[c] = (int*)malloc(n * sizeof(int));
+    inputArray(a, m, n);
+    printArray(a, m, n);
+    sortIncrease(a, m, n);
+    transponSnake(a, sortingArray, m, n);
+    printArray(sortingArray, m, n);
+    freeMatrix(a, m);
+}
+
+void inputArray(int** array, int row, int column)
+{
+    printf("Enter elements:\n");
+    for (int i = 0; i < row; i++)
+        for (int j = 0; j < column; j++)
+            scanf_s("%d", &array[i][j]);
+}
+
+void printArray(int** array, int row, int column)
+{
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < column; j++)
+            printf("%d  ", array[i][j]);
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void freeMatrix(int** array, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(array[i]);
+    free(array);
+}
+
+void sortIncrease(int** array, int row, int column)
+{
+       for (int h = 0; h < row; h++) {
+        for (int s = 0; s < column; s++) {
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < column; j++) {
+                    if (array[h][s] < array[i][j]) 
+                        swap(&array[h][s], &array[i][j]);
+                }
+            }
+        }
+    }
+}
+
+void transponSnake(int** array, int** sortArray, int row, int column)
+{
+    int j = 0;
+    int k = 1;
+    int q = 0;
+    int w = 0;
+   /* for (int h = 0; h < row; h++) {
+        for (int f = 0; f < 0; f++){*/
+            for (int i = 0; i < row; i++){
+                for (; j >= 0 && j < column; j = j + k) {
+                    sortArray[q][w] = array[i][j];
+                    w++;
+                }
+                w = 0;
+                q = q + 1;
+                k = -k;
+                j = j + k;
+                printf("\n");
+            }
+}
+
+void swap(int* a, int* b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
