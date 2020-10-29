@@ -8,6 +8,7 @@ void printArray(int**, int, int);
 void transponElements(int**, int, int, int*, int*, int*, int*);
 void findMaxMin(int**, int, int, int*, int*, int*, int*);
 void freeMatrix(int**, int);
+int** allocateMatrix(int row, int column);
 
 int main()
 {
@@ -18,9 +19,7 @@ int main()
     int indexJMin; //индекс j минимального эл
     printf("Input dimention matrix (row/col): ");
     scanf_s("%d/%d", &m, &n);
-    int** a = (int**)malloc(m * sizeof(int*));
-    for (int c = 0; c < m; c++)
-        a[c] = (int*)malloc(n * sizeof(int));
+    int** a = allocateMatrix(m, n);
     inputArray(a, m, n);
     printArray(a, m, n);
     if (n >= m) {
@@ -32,7 +31,6 @@ int main()
         transponElements(a, n, m - n, &indexIMax, &indexJMax, &indexIMin, &indexJMin);
     }
     printArray(a, m, n);
-    //printf("%d,%d,%d,%d", indexIMax, indexJMax, indexIMin, indexJMin);
     freeMatrix(a, m);
 }
 
@@ -61,8 +59,10 @@ void findMaxMin(int** array, int size, int numderRowStart, int* iMax, int* jMax,
     *jMax = 0;
     *iMin = numderRowStart;
     *jMin = 0;
-    for (int i = numderRowStart; i < size + numderRowStart; i++) {
-        for (int j = 0; j < size; j++){
+    for (int i = numderRowStart; i < size + numderRowStart; i++) 
+    {
+        for (int j = 0; j < size; j++) 
+        {
             if (array[i][j] > array[*iMax][*jMax])
             {
                 *iMax = i;
@@ -93,4 +93,13 @@ void freeMatrix(int** array, int n)
     for (int i = 0; i < n; i++)
         free(array[i]);
     free(array);
+}
+
+
+int** allocateMatrix(int row, int column)
+{
+    int** a = (int**)malloc(row * sizeof(int*));
+    for (int c = 0; c < row; c++)
+        a[c] = (int*)malloc(column * sizeof(int));
+    return a;
 }
