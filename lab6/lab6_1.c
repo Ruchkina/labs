@@ -5,6 +5,7 @@ void inputArray(int**, int, int);
 void printArray(int**, int, int);
 void squareTransponMatrix(int**, int, int, int);
 void freeMatrix(int**, int);
+int** allocateMatrix(int row, int column);
 
 int main()
 
@@ -15,9 +16,7 @@ int main()
     // n - column
     scanf_s("%d/%d", &m, &n);
 
-    int** a = (int**)malloc(m * sizeof(int*));
-    for (int c = 0; c < m; c++)
-        a[c] = (int*)malloc(n * sizeof(int));
+    int** a = allocateMatrix(m, n);
     inputArray(a, m, n);
     printArray(a, m, n);
     if (m <= n)
@@ -69,4 +68,12 @@ void freeMatrix(int** array, int n)
     for (int i = 0; i < n; i++)
         free(array[i]);
     free(array);
+}
+
+int** allocateMatrix(int row, int column)
+{
+    int** a = (int**)malloc(row * sizeof(int*));
+    for (int c = 0; c < row; c++)
+        a[c] = (int*)malloc(column * sizeof(int));
+    return a;
 }
