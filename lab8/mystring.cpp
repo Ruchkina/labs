@@ -1,5 +1,7 @@
 #define N 30
 #define LENGHT_STR 100
+#define SUF 10
+
 #include <malloc.h>
 #include <stdio.h>
 
@@ -37,7 +39,7 @@ void inputArray(char** array, int column)
 void inputSuf(char* array)
 {
 	printf("Input suf: ");
-	fgets(array, 7, stdin);
+	fgets(array, SUF, stdin);
 }
 
 int stringLenght(char* str)
