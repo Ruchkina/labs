@@ -13,7 +13,7 @@ int main()
 	printf("Enter string: ");
 	fgets(str, N, stdin);
 	printf("\nEntered string %s", str);
-	deleteGap(str, str_result, count);
+	deleteSpace(str, str_result, count);
 	printf("\n\nResult string: %s\n\n", str_result);
 
 	//лабораторная 8.2
