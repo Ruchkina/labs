@@ -5,7 +5,7 @@
 #define LENGHT_STR 100
 #define SUF 10
 
-void deleteGap(char* string, char*, int t);
+void deleteSpace(char* string, char*, int t);
 char** allocateMatrix(int column);
 void inputArray(char** array, int column);
 void inputSuf(char* array);
