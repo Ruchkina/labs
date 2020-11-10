@@ -5,7 +5,7 @@
 #include <malloc.h>
 #include <stdio.h>
 
-void deleteGap(char* string, char* strResult, int t)
+void deleteSpace(char* string, char* strResult, int t)
 {
 	for (int i = 0; i < N; i++)
 	{
