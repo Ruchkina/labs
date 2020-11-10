@@ -20,8 +20,8 @@ int main()
 	printf("lab8.2\n");
 	int n;
 	char** list;
-	char suf1[10];
-	char suf2[10];
+	char suf1[SUF];
+	char suf2[SUF];
 
 	inputSuf(suf1);
 	inputSuf(suf2);
