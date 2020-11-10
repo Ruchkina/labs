@@ -31,7 +31,7 @@ int main()
 
 	printf("Count string:");
 	scanf_s("%d", &n);
-	fgetc(stdin);
+	getchar(); //fgetc(stdin);
 
 	list = allocateMatrix(n);
 	inputArray(list, n);
