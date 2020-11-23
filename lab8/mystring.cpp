@@ -1,9 +1,39 @@
 #define N 30
 #define LENGHT_STR 100
 #define SUF 10
-
 #include <malloc.h>
 #include <stdio.h>
+
+char* strcopy(char* destination, char* sourse)
+{
+	for (int i = 0; destination[i] = sourse[i]; i++);
+	return destination;
+}
+
+char* findString(char* string, char* substring)
+{
+	char* q;
+	char* p = string;
+	char* qs = substring;
+	int check = 1;
+	while (*p && *qs && check)
+	{
+		for (q = p, qs = substring; *q && *q == *qs; q++, qs++);
+		if (!(*qs && *q))
+			check = 0;
+		else
+			p++;
+	}
+	return *p ? p : NULL;
+}
+
+void deleteWhiteSpace(char* string)
+{
+	char* whiteSpace;
+	char a[3] = { ' ', ' ', '\0' };
+	while (whiteSpace = findString(string, a))
+		strcopy(whiteSpace, whiteSpace + 1);
+}
 
 void deleteSpace(char* string, char* strResult, int t)
 {
@@ -20,7 +50,7 @@ void deleteSpace(char* string, char* strResult, int t)
 }
 
 char** allocateMatrix(int column)
-{       
+{
 	char** a = (char**)malloc(column * sizeof(char*));
 	for (int i = 0; i < column; i++)
 		a[i] = (char*)calloc(LENGHT_STR, sizeof(char));
@@ -67,12 +97,12 @@ void changeBiggerForSmaller(int lenght1, int lenght2, char** array, int size, ch
 	}
 }
 
-void changeBiggerForSmaller(char** array, int column, int lenght1, int lenght2, int indexOfSpace, char* suffix)
+void changeSmallerForBigger(char** array, int column, int lenght1, int lenght2, int indexOfSpace, char* suffix)
 {
 	int l = 0;
-	for (int r = 99; r > indexOfSpace; r--)
+	for (int r = 99; r >= indexOfSpace; r--)
 		array[column][r] = array[column][r - (lenght2 - lenght1)];
-	for (int k = -lenght1; k < lenght2 - 1; k++)
+	for (int k = -lenght1; k < lenght2 - lenght1; k++)
 	{
 		array[column][indexOfSpace + k] = suffix[l];
 		l++;
@@ -108,3 +138,4 @@ int findLastWords(int lenght1, char** array, char* suffix1, int indexOfSpace, in
 	}
 	return flag;
 }
+
