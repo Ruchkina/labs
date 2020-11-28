@@ -3,7 +3,8 @@
 
 #define NAME_LEN 128
 
-typedef struct STUDENT {
+typedef struct STUDENT 
+{
     char name[NAME_LEN];
     int marks[5];
     int status;
