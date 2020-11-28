@@ -13,7 +13,13 @@ int main()
     //STUDENT* group = new STUDENT[numberOfStudent];
     STUDENT* group = allocateA(numberOfStudent);
     for (int i = 0; i < numberOfStudent; i++)
+    {
         group[i] = input();
+        group[i].status = checkStatus(&group[i]);
+    }
+    sortByStatus(group, numberOfStudent);
+    sortByABC(group, numberOfStudent);
     for (int i = 0; i < numberOfStudent; i++)
-        print(group[i]);
+        output(&group[i]);
+
 }
