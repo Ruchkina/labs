@@ -22,4 +22,5 @@ int main()
     for (int i = 0; i < numberOfStudent; i++)
         output(&group[i]);
 
+    free(group);
 }
